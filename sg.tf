@@ -74,13 +74,14 @@ resource "aws_security_group_rule" "rancher_vpc_to_control_plane" {
   description       = "Permite acesso da VPC do Rancher"
 }
 
-# Regra: "CNJ"
-resource "aws_security_group_rule" "cnj_to_control_plane" {
+# Regra: ""
+resource "aws_security_group_rule" "to_control_plane" {
   type              = "ingress"
   security_group_id = aws_security_group.eks_control_plane_sg.id
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
   cidr_blocks       = ["172.16.0.0/12"]
-  description       = "Permite acesso HTTPS do CNJ"
+  description       = "Permite acesso HTTPS"
+
 }
