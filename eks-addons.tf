@@ -49,8 +49,8 @@ resource "aws_eks_addon" "aws_ebs_csi_driver" {
   configuration_values = jsonencode({
     controller = {
       extraVolumeTags = {
-        "cnj-env"         = "staging"
-        "cnj-nature"      = "operation"
+        "env"         = "staging"
+        "nature"      = "operation"
         "backup-required" = "false"
       }
     }
@@ -60,4 +60,5 @@ resource "aws_eks_addon" "aws_ebs_csi_driver" {
   depends_on = [
     aws_eks_node_group.node
   ]
+
 }
